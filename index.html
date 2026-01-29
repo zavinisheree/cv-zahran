@@ -56,10 +56,24 @@
             border: 4px solid white;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         }
+        .experience-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+        .experience-card:hover {
+            border-left-color: #667eea;
+            background: #f8fafc;
+            transform: translateX(5px);
+        }
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1rem;
+        }
     </style>
 </head>
 <body class="py-10 px-4 md:px-0">
-    <div class="max-w-4xl mx-auto">
+    <div class="max-w-5xl mx-auto">
         <!-- Header / Profile Section -->
         <div class="glass-card p-8 md:p-12 mb-8 text-center md:text-left flex flex-col md:flex-row items-center gap-8">
             <div class="relative">
@@ -68,88 +82,94 @@
                      class="profile-img bg-indigo-100"
                      onerror="this.src='https://ui-avatars.com/api/?name=Zahran+Khaliq&background=667eea&color=fff&size=200'">
             </div>
-            <div class="flex-1">
+            <div class="flex-1 w-full">
                 <h1 class="text-4xl md:text-5xl font-extrabold text-gray-800 mb-2">Zahran Khaliq Fahrezi</h1>
-                <p class="text-xl text-indigo-600 font-semibold mb-4">Creative Thinker & Pro Gamer 🎮</p>
+                <p class="text-xl text-indigo-600 font-semibold mb-4">Aktor Hollywood, Survivor & Pro Gamer 🎬🎮</p>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-600">
-                    <div class="flex items-center gap-2 justify-center md:justify-start">
+                    <div class="flex items-center gap-2 justify-center md:justify-start text-sm md:text-base">
                         <span>📍</span> Bandung, Baleendah Jelekong
                     </div>
-                    <div class="flex items-center gap-2 justify-center md:justify-start">
+                    <div class="flex items-center gap-2 justify-center md:justify-start text-sm md:text-base">
                         <span>📞</span> 085723495394
                     </div>
-                    <div class="flex items-center gap-2 justify-center md:justify-start">
+                    <div class="flex items-center gap-2 justify-center md:justify-start text-sm md:text-base">
+                        <span>✉️</span> zahranfahrezi942@gmail.com
+                    </div>
+                    <div class="flex items-center gap-2 justify-center md:justify-start text-sm md:text-base">
                         <span>📅</span> Lahir: 2007
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Left Column -->
-            <div class="md:col-span-2 space-y-8">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Left & Middle Column (Main Content) -->
+            <div class="lg:col-span-2 space-y-8">
                 <!-- Tentang Diri -->
                 <section class="glass-card p-8">
                     <h2 class="section-title">✨ Tentang Diri</h2>
                     <p class="text-gray-700 leading-relaxed text-lg">
-                        Halo! Saya Zahran, seorang individu yang penuh semangat dan kreatif dengan ketertarikan besar di dunia teknologi, seni, dan komunikasi. Saya adalah tipe orang yang selalu ingin tahu dan senang mengeksplorasi hal-hal baru, mulai dari mengasah logika lewat gaming kompetitif hingga mengekspresikan diri melalui musik dan editing. Dengan latar belakang pengalaman organisasi yang kuat, saya memiliki kemampuan adaptasi yang cepat dan dedikasi tinggi dalam setiap tantangan yang saya hadapi.
+                        Saya adalah individu dengan riwayat hidup yang sangat unik dan legendaris. Dari memenangkan kompetisi game tingkat internasional hingga membintangi film aksi Hollywood. Sebagai penyintas berbagai peristiwa bersejarah dan kiamat 2012, saya memiliki ketahanan mental dan fisik yang luar biasa. Saat ini saya aktif berkontribusi di organisasi global seperti NASA dan PBB untuk membawa perubahan positif bagi dunia.
                     </p>
                 </section>
 
-                <!-- Pendidikan -->
+                <!-- Prestasi (Legenda) -->
                 <section class="glass-card p-8">
-                    <h2 class="section-title">🎓 Pendidikan</h2>
-                    <div class="space-y-6">
-                        <div class="relative pl-8 border-l-2 border-indigo-200">
-                            <div class="absolute -left-[9px] top-1 w-4 h-4 bg-indigo-500 rounded-full"></div>
-                            <h3 class="font-bold text-lg text-gray-800">SMA KP BALEENDAH</h3>
-                            <p class="text-indigo-600 font-medium">2023 - 2026</p>
+                    <h2 class="section-title">🏆 Prestasi Legendaris</h2>
+                    <div class="achievement-grid">
+                        <div class="p-4 bg-orange-50 rounded-2xl border border-orange-100 transition hover:shadow-md">
+                            <span class="text-2xl">🎭</span>
+                            <h4 class="font-bold text-gray-800 mt-2">Aktor Action Terbaik</h4>
+                            <p class="text-xs text-gray-600">Hollywood Industry Award</p>
                         </div>
-                        <div class="relative pl-8 border-l-2 border-indigo-200">
-                            <div class="absolute -left-[9px] top-1 w-4 h-4 bg-indigo-500 rounded-full"></div>
-                            <h3 class="font-bold text-lg text-gray-800">SMPN BE 02</h3>
-                            <p class="text-indigo-600 font-medium">2020 - 2023</p>
-                            <p class="text-sm text-gray-500 italic">Lulusan Terbaik</p>
+                        <div class="p-4 bg-green-50 rounded-2xl border border-green-100 transition hover:shadow-md">
+                            <span class="text-2xl">⚽</span>
+                            <h4 class="font-bold text-gray-800 mt-2">Wonder Kids</h4>
+                            <p class="text-xs text-gray-600">Champions League Winner</p>
                         </div>
-                        <div class="relative pl-8 border-l-2 border-indigo-200">
-                            <div class="absolute -left-[9px] top-1 w-4 h-4 bg-indigo-500 rounded-full"></div>
-                            <h3 class="font-bold text-lg text-gray-800">SDN JELEKONG</h3>
-                            <p class="text-indigo-600 font-medium">2014 - 2020</p>
+                        <div class="p-4 bg-red-50 rounded-2xl border border-red-100 transition hover:shadow-md">
+                            <span class="text-2xl">🛡️</span>
+                            <h4 class="font-bold text-gray-800 mt-2">Survivor Perang Dunia 2</h4>
+                            <p class="text-xs text-gray-600">Legendary Human Achievement</p>
+                        </div>
+                        <div class="p-4 bg-blue-50 rounded-2xl border border-blue-100 transition hover:shadow-md">
+                            <span class="text-2xl">🌊</span>
+                            <h4 class="font-bold text-gray-800 mt-2">Selamat dari Kiamat 2012</h4>
+                            <p class="text-xs text-gray-600">World-Class Luck & Survival</p>
+                        </div>
+                        <div class="p-4 bg-teal-50 rounded-2xl border border-teal-100 transition hover:shadow-md">
+                            <span class="text-2xl">🦠</span>
+                            <h4 class="font-bold text-gray-800 mt-2">Selamat dari COVID-19</h4>
+                            <p class="text-xs text-gray-600">Immunity Master</p>
+                        </div>
+                        <div class="p-4 bg-indigo-50 rounded-2xl border border-indigo-100 transition hover:shadow-md">
+                            <span class="text-2xl">🎮</span>
+                            <h4 class="font-bold text-gray-800 mt-2">Champion APAC Valorant</h4>
+                            <p class="text-xs text-gray-600">International Tournament 2022</p>
                         </div>
                     </div>
                 </section>
 
-                <!-- Pengalaman & Sertifikat -->
+                <!-- Pengalaman Organisasi -->
                 <section class="glass-card p-8">
-                    <h2 class="section-title">🏆 Prestasi & Pengalaman</h2>
-                    <div class="grid grid-cols-1 gap-4">
-                        <div class="flex items-start gap-4 p-4 bg-yellow-50 rounded-2xl border border-yellow-100 transition hover:shadow-md">
-                            <span class="text-3xl">🥇</span>
-                            <div>
-                                <h4 class="font-bold text-gray-800">Champion Asia Pacific Tour Valorant</h4>
-                                <p class="text-gray-600">International Tournament - 2022</p>
-                            </div>
+                    <h2 class="section-title">🏢 Pengalaman Organisasi Global</h2>
+                    <div class="space-y-4">
+                        <div class="experience-card p-4 rounded-2xl bg-slate-50">
+                            <h4 class="font-bold text-gray-800 text-lg">NASA (National Aeronautics and Space Administration)</h4>
+                            <p class="text-indigo-600 font-semibold">Special Contributor • 2021 - 2024</p>
+                            <p class="text-sm text-gray-600 mt-1">Membantu perhitungan lintasan roket dan eksplorasi planet luar.</p>
                         </div>
-                        <div class="flex items-start gap-4 p-4 bg-indigo-50 rounded-2xl border border-indigo-100 transition hover:shadow-md">
-                            <span class="text-3xl">🤝</span>
-                            <div>
-                                <h4 class="font-bold text-gray-800">Pengurus OSIS</h4>
-                                <p class="text-gray-600">Masa Bakti 2023 - 2024</p>
-                            </div>
+                        <div class="experience-card p-4 rounded-2xl bg-slate-50">
+                            <h4 class="font-bold text-gray-800 text-lg">Perserikatan Bangsa-Bangsa (PBB)</h4>
+                            <p class="text-indigo-600 font-semibold">International Delegate • 2023</p>
                         </div>
-                        <div class="flex items-start gap-4 p-4 bg-blue-50 rounded-2xl border border-blue-100 transition hover:shadow-md">
-                            <span class="text-3xl">♟️</span>
-                            <div>
-                                <h4 class="font-bold text-gray-800">Juara 1 Catur</h4>
-                                <p class="text-gray-600">Tingkat Sekolah/Daerah - 2020</p>
-                            </div>
+                        <div class="experience-card p-4 rounded-2xl bg-slate-50">
+                            <h4 class="font-bold text-gray-800 text-lg">World Health Organization (WHO)</h4>
+                            <p class="text-indigo-600 font-semibold">Volunteer Representative • 2019</p>
                         </div>
-                        <div class="flex items-start gap-4 p-4 bg-pink-50 rounded-2xl border border-pink-100 transition hover:shadow-md">
-                            <span class="text-3xl">😎</span>
-                            <div>
-                                <h4 class="font-bold text-gray-800">Certified Handsome Boy</h4>
-                                <p class="text-gray-600">Special Achievement - 2020</p>
-                            </div>
+                        <div class="experience-card p-4 rounded-2xl bg-slate-50">
+                            <h4 class="font-bold text-gray-800 text-lg">Pengurus OSIS</h4>
+                            <p class="text-indigo-600 font-semibold">Masa Bakti 2023 - 2024</p>
                         </div>
                     </div>
                 </section>
@@ -157,75 +177,37 @@
 
             <!-- Right Column -->
             <div class="space-y-8">
+                <!-- Pendidikan -->
+                <section class="glass-card p-8">
+                    <h2 class="section-title">🎓 Pendidikan</h2>
+                    <div class="space-y-6">
+                        <div class="relative pl-6 border-l-2 border-indigo-200">
+                            <div class="absolute -left-[9px] top-1 w-4 h-4 bg-indigo-500 rounded-full"></div>
+                            <h3 class="font-bold text-gray-800">SMA KP BALEENDAH</h3>
+                            <p class="text-sm text-indigo-600">2023 - 2026</p>
+                        </div>
+                        <div class="relative pl-6 border-l-2 border-indigo-200">
+                            <div class="absolute -left-[9px] top-1 w-4 h-4 bg-indigo-500 rounded-full"></div>
+                            <h3 class="font-bold text-gray-800">SMPN BE 02</h3>
+                            <p class="text-sm text-indigo-600">2020 - 2023</p>
+                        </div>
+                        <div class="relative pl-6 border-l-2 border-indigo-200">
+                            <div class="absolute -left-[9px] top-1 w-4 h-4 bg-indigo-500 rounded-full"></div>
+                            <h3 class="font-bold text-gray-800">SDN JELEKONG</h3>
+                            <p class="text-sm text-indigo-600">2014 - 2020</p>
+                        </div>
+                    </div>
+                </section>
+
                 <!-- Keahlian -->
                 <section class="glass-card p-8">
                     <h2 class="section-title">💪 Keahlian</h2>
                     <div class="flex flex-wrap gap-2">
-                        <span class="skill-badge">Public Speaking</span>
-                        <span class="skill-badge">Komunikasi</span>
-                        <span class="skill-badge">Manajemen Diri</span>
-                        <span class="skill-badge">Berpikir Kreatif</span>
-                        <span class="skill-badge">Pemasaran</span>
-                        <span class="skill-badge">Problem Solving</span>
-                    </div>
-                </section>
-
-                <!-- Hobby -->
-                <section class="glass-card p-8">
-                    <h2 class="section-title">🎨 Hobi</h2>
-                    <ul class="space-y-3">
-                        <li class="flex items-center gap-3 text-gray-700 font-medium">
-                            <span class="w-10 h-10 flex items-center justify-center bg-red-100 rounded-xl text-lg shadow-sm">🎤</span> Menyanyi
-                        </li>
-                        <li class="flex items-center gap-3 text-gray-700 font-medium">
-                            <span class="w-10 h-10 flex items-center justify-center bg-green-100 rounded-xl text-lg shadow-sm">🎮</span> Gaming
-                        </li>
-                        <li class="flex items-center gap-3 text-gray-700 font-medium">
-                            <span class="w-10 h-10 flex items-center justify-center bg-orange-100 rounded-xl text-lg shadow-sm">👨‍🍳</span> Memasak
-                        </li>
-                        <li class="flex items-center gap-3 text-gray-700 font-medium">
-                            <span class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-xl text-lg shadow-sm">📚</span> Membaca
-                        </li>
-                        <li class="flex items-center gap-3 text-gray-700 font-medium">
-                            <span class="w-10 h-10 flex items-center justify-center bg-purple-100 rounded-xl text-lg shadow-sm">🎬</span> Editing
-                        </li>
-                        <li class="flex items-center gap-3 text-gray-700 font-medium">
-                            <span class="w-10 h-10 flex items-center justify-center bg-pink-100 rounded-xl text-lg shadow-sm">🎸</span> Alat Musik
-                        </li>
-                    </ul>
-                </section>
-
-                <!-- Bahasa -->
-                <section class="glass-card p-8">
-                    <h2 class="section-title">🗣️ Bahasa</h2>
-                    <div class="space-y-4">
-                        <div>
-                            <div class="flex justify-between mb-1 font-semibold">
-                                <span>Indonesia</span>
-                                <span>100%</span>
-                            </div>
-                            <div class="w-full bg-gray-200 rounded-full h-2">
-                                <div class="bg-indigo-600 h-2 rounded-full" style="width: 100%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1 font-semibold">
-                                <span>Sunda</span>
-                                <span>95%</span>
-                            </div>
-                            <div class="w-full bg-gray-200 rounded-full h-2">
-                                <div class="bg-indigo-600 h-2 rounded-full" style="width: 95%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1 font-semibold">
-                                <span>Inggris</span>
-                                <span>80%</span>
-                            </div>
-                            <div class="w-full bg-gray-200 rounded-full h-2">
-                                <div class="bg-indigo-600 h-2 rounded-full" style="width: 80%"></div>
-                            </div>
-                        </div>
+                        <span class="skill-badge text-xs">Acting</span>
+                        <span class="skill-badge text-xs">Survival</span>
+                        <span class="skill-badge text-xs">Diplomasi</span>
+                        <span class="skill-badge text-xs">Physics</span>
+                        <span class="skill-badge text-xs">Video Editing</span>
                     </div>
                 </section>
 
@@ -236,20 +218,20 @@
                         <a href="https://instagram.com/_zavinn" target="_blank" class="social-link w-12 h-12 flex items-center justify-center bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 text-white rounded-2xl text-xl shadow-lg">
                             📸
                         </a>
-                        <a href="#" class="social-link w-12 h-12 flex items-center justify-center bg-blue-600 text-white rounded-2xl text-xl shadow-lg">
+                        <a href="https://www.facebook.com/gavin.parker.466499" target="_blank" class="social-link w-12 h-12 flex items-center justify-center bg-blue-600 text-white rounded-2xl text-xl shadow-lg">
                             FB
                         </a>
                     </div>
-                    <div class="text-sm space-y-1">
-                        <p class="font-bold text-gray-700">IG: @_zavinn</p>
-                        <p class="font-bold text-gray-700">FB: Gavin Parker</p>
+                    <div class="text-sm font-bold text-gray-700">
+                        <p>IG: @_zavinn</p>
+                        <p class="mt-1">FB: Gavin Parker</p>
                     </div>
                 </section>
             </div>
         </div>
 
         <footer class="mt-12 text-center text-white pb-10">
-            <p class="opacity-80">Dibuat dengan ❤️ untuk Zahran Khaliq Fahrezi</p>
+            <p class="opacity-80">Dibuat dengan ❤️ untuk Sang Legenda, Zahran Khaliq Fahrezi</p>
         </footer>
     </div>
 </body>
