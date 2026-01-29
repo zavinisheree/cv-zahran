@@ -70,6 +70,20 @@
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 1rem;
         }
+        .hobby-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem;
+            background: #f8fafc;
+            border-radius: 1rem;
+            transition: all 0.3s ease;
+        }
+        .hobby-item:hover {
+            background: #e0e7ff;
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body class="py-10 px-4 md:px-0">
@@ -127,6 +141,16 @@
                             <h4 class="font-bold text-gray-800 mt-2">Wonder Kids</h4>
                             <p class="text-xs text-gray-600">Champions League Winner</p>
                         </div>
+                        <div class="p-4 bg-pink-50 rounded-2xl border border-pink-100 transition hover:shadow-md">
+                            <span class="text-2xl">😎</span>
+                            <h4 class="font-bold text-gray-800 mt-2">Certified Handsome Boy</h4>
+                            <p class="text-xs text-gray-600">International Standard - 2020</p>
+                        </div>
+                        <div class="p-4 bg-blue-100 rounded-2xl border border-blue-200 transition hover:shadow-md">
+                            <span class="text-2xl">♟️</span>
+                            <h4 class="font-bold text-gray-800 mt-2">Juara 1 Catur</h4>
+                            <p class="text-xs text-gray-600">Grandmaster Level Awareness</p>
+                        </div>
                         <div class="p-4 bg-red-50 rounded-2xl border border-red-100 transition hover:shadow-md">
                             <span class="text-2xl">🛡️</span>
                             <h4 class="font-bold text-gray-800 mt-2">Survivor Perang Dunia 2</h4>
@@ -150,26 +174,33 @@
                     </div>
                 </section>
 
-                <!-- Pengalaman Organisasi -->
+                <!-- Hobi Section -->
                 <section class="glass-card p-8">
-                    <h2 class="section-title">🏢 Pengalaman Organisasi Global</h2>
-                    <div class="space-y-4">
-                        <div class="experience-card p-4 rounded-2xl bg-slate-50">
-                            <h4 class="font-bold text-gray-800 text-lg">NASA (National Aeronautics and Space Administration)</h4>
-                            <p class="text-indigo-600 font-semibold">Special Contributor • 2021 - 2024</p>
-                            <p class="text-sm text-gray-600 mt-1">Membantu perhitungan lintasan roket dan eksplorasi planet luar.</p>
+                    <h2 class="section-title">🎨 Hobi & Kegemaran</h2>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        <div class="hobby-item">
+                            <span class="text-3xl">🎤</span>
+                            <span class="font-bold text-gray-700">Menyanyi</span>
                         </div>
-                        <div class="experience-card p-4 rounded-2xl bg-slate-50">
-                            <h4 class="font-bold text-gray-800 text-lg">Perserikatan Bangsa-Bangsa (PBB)</h4>
-                            <p class="text-indigo-600 font-semibold">International Delegate • 2023</p>
+                        <div class="hobby-item">
+                            <span class="text-3xl">🎮</span>
+                            <span class="font-bold text-gray-700">Gaming</span>
                         </div>
-                        <div class="experience-card p-4 rounded-2xl bg-slate-50">
-                            <h4 class="font-bold text-gray-800 text-lg">World Health Organization (WHO)</h4>
-                            <p class="text-indigo-600 font-semibold">Volunteer Representative • 2019</p>
+                        <div class="hobby-item">
+                            <span class="text-3xl">👨‍🍳</span>
+                            <span class="font-bold text-gray-700">Memasak</span>
                         </div>
-                        <div class="experience-card p-4 rounded-2xl bg-slate-50">
-                            <h4 class="font-bold text-gray-800 text-lg">Pengurus OSIS</h4>
-                            <p class="text-indigo-600 font-semibold">Masa Bakti 2023 - 2024</p>
+                        <div class="hobby-item">
+                            <span class="text-3xl">📚</span>
+                            <span class="font-bold text-gray-700">Membaca</span>
+                        </div>
+                        <div class="hobby-item">
+                            <span class="text-3xl">🎬</span>
+                            <span class="font-bold text-gray-700">Editing</span>
+                        </div>
+                        <div class="hobby-item">
+                            <span class="text-3xl">🎸</span>
+                            <span class="font-bold text-gray-700">Musik</span>
                         </div>
                     </div>
                 </section>
@@ -203,11 +234,16 @@
                 <section class="glass-card p-8">
                     <h2 class="section-title">💪 Keahlian</h2>
                     <div class="flex flex-wrap gap-2">
+                        <span class="skill-badge text-xs">Public Speaking</span>
+                        <span class="skill-badge text-xs">Komunikasi</span>
+                        <span class="skill-badge text-xs">Manajemen Diri</span>
+                        <span class="skill-badge text-xs">Berpikir Kreatif</span>
+                        <span class="skill-badge text-xs">Pemasaran</span>
+                        <span class="skill-badge text-xs">Problem Solving</span>
                         <span class="skill-badge text-xs">Acting</span>
                         <span class="skill-badge text-xs">Survival</span>
-                        <span class="skill-badge text-xs">Diplomasi</span>
-                        <span class="skill-badge text-xs">Physics</span>
-                        <span class="skill-badge text-xs">Video Editing</span>
+                        <span class="skill-badge text-xs">Chess Strategy</span>
+                        <span class="skill-badge text-xs">Handsome Presence</span>
                     </div>
                 </section>
 
