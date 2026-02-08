@@ -3,272 +3,403 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV Zahran Khaliq Fahrezi</title>
+    <title>Zahran Khaliq Fahrezi | Official Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@100;300;400;600;900&display=swap" rel="stylesheet">
+    <!-- AOS for Scroll Animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
     <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #a855f7;
+            --accent: #ec4899;
+            --bg-dark: #0f172a;
+        }
+
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-dark);
+            color: #f8fafc;
+            overflow-x: hidden;
         }
+
+        h1, h2, h3, .font-heading {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        /* Animated Background */
+        .bg-gradient-mesh {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: 
+                radial-gradient(circle at 0% 0%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 100% 100%, rgba(236, 72, 153, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.1) 0%, transparent 50%);
+            background-color: var(--bg-dark);
+        }
+
+        /* Glassmorphism */
+        .glass {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        }
+
         .glass-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 2rem;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .section-title {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: #4a5568;
-            margin-bottom: 1.5rem;
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 0.5rem;
+
+        .glass-card:hover {
+            transform: translateY(-8px);
+            background: rgba(51, 65, 85, 0.8);
+            border-color: var(--primary);
         }
-        .skill-badge {
-            background: #edf2f7;
-            padding: 0.5rem 1rem;
-            border-radius: 9999px;
-            font-weight: 600;
-            color: #4a5568;
+
+        /* Glowing Text/Elements */
+        .glow-text {
+            text-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+        }
+
+        .glow-border {
+            position: relative;
+        }
+
+        .glow-border::after {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent));
+            z-index: -1;
+            border-radius: inherit;
+            opacity: 0.3;
+            transition: opacity 0.3s;
+        }
+
+        .glow-border:hover::after {
+            opacity: 1;
+        }
+
+        /* Achievement Badges */
+        .badge-grid > div {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .badge-grid > div::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(transparent, rgba(255,255,255,0.1), transparent 30%);
+            animation: rotate 4s linear infinite;
+        }
+
+        @keyframes rotate {
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(var(--primary), var(--secondary));
+            border-radius: 10px;
+        }
+
+        .skill-tag {
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.3);
             transition: all 0.3s ease;
         }
-        .skill-badge:hover {
-            background: #667eea;
+
+        .skill-tag:hover {
+            background: var(--primary);
             color: white;
-            transform: translateY(-2px);
-        }
-        .social-link {
-            transition: transform 0.3s ease;
-        }
-        .social-link:hover {
-            transform: scale(1.1);
-        }
-        .profile-img {
-            width: 160px;
-            height: 160px;
-            object-fit: cover;
-            border-radius: 9999px;
-            border: 4px solid white;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-        .experience-card {
-            transition: all 0.3s ease;
-            border-left: 4px solid transparent;
-        }
-        .experience-card:hover {
-            border-left-color: #667eea;
-            background: #f8fafc;
-            transform: translateX(5px);
-        }
-        .achievement-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1rem;
-        }
-        .hobby-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 1rem;
-            background: #f8fafc;
-            border-radius: 1rem;
-            transition: all 0.3s ease;
-        }
-        .hobby-item:hover {
-            background: #e0e7ff;
-            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(99, 102, 241, 0.5);
         }
     </style>
 </head>
-<body class="py-10 px-4 md:px-0">
-    <div class="max-w-5xl mx-auto">
-        <!-- Header / Profil -->
-        <div class="glass-card p-8 md:p-12 mb-8 text-center md:text-left flex flex-col md:flex-row items-center gap-8">
-            <div class="relative">
+<body class="antialiased">
+    <div class="bg-gradient-mesh"></div>
+
+    <main class="max-w-6xl mx-auto px-4 py-12">
+        
+        <!-- HEADER SECTION -->
+        <header class="glass rounded-[3rem] p-8 md:p-16 mb-12 flex flex-col md:flex-row items-center gap-10 glow-border" data-aos="fade-down">
+            <div class="relative group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full blur opacity-40 group-hover:opacity-100 transition duration-1000"></div>
                 <img src="Gemini_Generated_Image_iooxi7iooxi7ioox (1).png" 
                      alt="Zahran Khaliq Fahrezi" 
-                     class="profile-img bg-indigo-100"
-                     onerror="this.src='https://ui-avatars.com/api/?name=Zahran+Khaliq&background=667eea&color=fff&size=200'">
+                     class="relative w-48 h-48 md:w-64 md:h-64 object-cover rounded-full border-4 border-slate-800">
+                <div class="absolute bottom-4 right-4 bg-green-500 w-6 h-6 rounded-full border-4 border-slate-800 animate-pulse"></div>
             </div>
-            <div class="flex-1 w-full">
-                <h1 class="text-4xl md:text-5xl font-extrabold text-gray-800 mb-2">Zahran Khaliq Fahrezi</h1>
-                <p class="text-xl text-indigo-600 font-semibold mb-4">Aktor Hollywood, Survivor & Pro Gamer 🎬🎮</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-600">
-                    <div class="flex items-center gap-2 justify-center md:justify-start text-sm md:text-base">
-                        <span>📍</span> Bandung, Baleendah Jelekong
+
+            <div class="flex-1 text-center md:text-left">
+                <div class="inline-block px-4 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 text-sm font-bold mb-4 tracking-widest uppercase">
+                    Available for Global Projects
+                </div>
+                <h1 class="text-5xl md:text-7xl font-black mb-4 tracking-tight glow-text bg-clip-text text-transparent bg-gradient-to-r from-white via-indigo-200 to-slate-400">
+                    Zahran Khaliq Fahrezi
+                </h1>
+                <p class="text-xl md:text-2xl font-light text-slate-300 mb-8 italic">
+                    Aktor Hollywood, Survivor, & <span class="text-indigo-400 font-bold">Pro Gamer</span>
+                </p>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-slate-400 text-sm md:text-base">
+                    <div class="flex items-center gap-3 group">
+                        <div class="w-8 h-8 rounded-lg glass flex items-center justify-center group-hover:bg-indigo-500/20 transition">📍</div>
+                        <span>Bandung, Baleendah Jelekong</span>
                     </div>
-                    <div class="flex items-center gap-2 justify-center md:justify-start text-sm md:text-base">
-                        <span>📞</span> 085723495394
+                    <div class="flex items-center gap-3 group">
+                        <div class="w-8 h-8 rounded-lg glass flex items-center justify-center group-hover:bg-indigo-500/20 transition">📞</div>
+                        <span>085723495394</span>
                     </div>
-                    <div class="flex items-center gap-2 justify-center md:justify-start text-sm md:text-base">
-                        <span>✉️</span> zahranfahrezi942@gmail.com
+                    <div class="flex items-center gap-3 group">
+                        <div class="w-8 h-8 rounded-lg glass flex items-center justify-center group-hover:bg-indigo-500/20 transition">✉️</div>
+                        <span>zahranfahrezi942@gmail.com</span>
                     </div>
-                    <div class="flex items-center gap-2 justify-center md:justify-start text-sm md:text-base">
-                        <span>📅</span> Lahir: 2007
+                    <div class="flex items-center gap-3 group">
+                        <div class="w-8 h-8 rounded-lg glass flex items-center justify-center group-hover:bg-indigo-500/20 transition">📅</div>
+                        <span>Lahir: 2007</span>
                     </div>
                 </div>
             </div>
-        </div>
+        </header>
 
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <!-- Kolom Utama (Kiri & Tengah) -->
-            <div class="lg:col-span-2 space-y-8">
-                <!-- Tentang Diri -->
-                <section class="glass-card p-8">
-                    <h2 class="section-title">✨ Tentang Diri</h2>
-                    <p class="text-gray-700 leading-relaxed text-lg">
-                        Saya adalah individu dengan riwayat hidup yang sangat unik dan legendaris. Dari memenangkan kompetisi game tingkat internasional hingga membintangi film aksi Hollywood. Sebagai penyintas berbagai peristiwa bersejarah dan kiamat 2012, saya memiliki ketahanan mental dan fisik yang luar biasa. Saat ini saya aktif berkontribusi di organisasi global seperti NASA dan PBB untuk membawa perubahan positif bagi dunia.
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            
+            <!-- LEFT COLUMN -->
+            <div class="lg:col-span-8 space-y-8">
+                
+                <!-- ABOUT -->
+                <section class="glass rounded-[2rem] p-8 md:p-10 glass-card" data-aos="fade-up">
+                    <h2 class="text-3xl font-bold mb-6 flex items-center gap-4">
+                        <span class="w-10 h-1 border-b-4 border-indigo-500"></span>
+                        Tentang Diri
+                    </h2>
+                    <p class="text-lg text-slate-300 leading-relaxed font-light">
+                        Saya adalah individu dengan riwayat hidup yang <span class="text-white font-semibold">sangat unik dan legendaris</span>. Dari memenangkan kompetisi game tingkat internasional hingga membintangi film aksi Hollywood. Sebagai penyintas berbagai peristiwa bersejarah dan kiamat 2012, saya memiliki ketahanan mental dan fisik yang luar biasa. Saat ini saya aktif berkontribusi di organisasi global seperti <span class="text-indigo-400">NASA</span> dan <span class="text-purple-400">PBB</span> untuk membawa perubahan positif bagi dunia.
                     </p>
                 </section>
 
-                <!-- Prestasi -->
-                <section class="glass-card p-8">
-                    <h2 class="section-title">🏆 Prestasi Legendaris</h2>
-                    <div class="achievement-grid">
-                        <div class="p-4 bg-orange-50 rounded-2xl border border-orange-100 transition hover:shadow-md text-center md:text-left">
-                            <span class="text-2xl">🎭</span>
-                            <h4 class="font-bold text-gray-800 mt-2">Aktor Action Terbaik</h4>
-                            <p class="text-xs text-gray-600">Hollywood Industry Award</p>
+                <!-- LEGENDARY ACHIEVEMENTS -->
+                <section class="glass rounded-[2rem] p-8 md:p-10" data-aos="fade-up">
+                    <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+                        <h2 class="text-3xl font-bold flex items-center gap-4">
+                            <span class="w-10 h-1 border-b-4 border-purple-500"></span>
+                            Prestasi Legendaris
+                        </h2>
+                        <span class="text-sm font-mono text-purple-400 tracking-tighter">VERIFIED BY INTERNATIONAL STANDARDS</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 badge-grid">
+                        <!-- VALORANT CHAMPIONS (NEW) -->
+                        <div class="glass p-6 rounded-2xl border-l-4 border-red-500 group">
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="text-4xl group-hover:scale-125 transition duration-500">🎮</span>
+                                <span class="bg-red-500/20 text-red-400 text-[10px] px-2 py-1 rounded font-bold uppercase">International</span>
+                            </div>
+                            <h4 class="text-xl font-bold text-white mb-1">Valorant Champions Winner</h4>
+                            <p class="text-red-400 font-bold text-sm mb-2">🏆 Best MVP 2024</p>
+                            <p class="text-xs text-slate-400">Gelar pemain terbaik dunia dengan statistik tak terkalahkan di turnamen internasional.</p>
                         </div>
-                        <div class="p-4 bg-green-50 rounded-2xl border border-green-100 transition hover:shadow-md text-center md:text-left">
-                            <span class="text-2xl">⚽</span>
-                            <h4 class="font-bold text-gray-800 mt-2">Wonder Kids</h4>
-                            <p class="text-xs text-gray-600">Champions League Winner</p>
+
+                        <div class="glass p-6 rounded-2xl border-l-4 border-amber-500 group">
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="text-4xl group-hover:scale-125 transition duration-500">🎭</span>
+                                <span class="bg-amber-500/20 text-amber-400 text-[10px] px-2 py-1 rounded font-bold uppercase">Hollywood</span>
+                            </div>
+                            <h4 class="text-xl font-bold text-white mb-1">Aktor Action Terbaik</h4>
+                            <p class="text-xs text-slate-400 italic">Hollywood Industry Award</p>
                         </div>
-                        <div class="p-4 bg-pink-50 rounded-2xl border border-pink-100 transition hover:shadow-md text-center md:text-left">
-                            <span class="text-2xl">😎</span>
-                            <h4 class="font-bold text-gray-800 mt-2">Certified Handsome Boy</h4>
-                            <p class="text-xs text-gray-600">International Standard</p>
+
+                        <div class="glass p-6 rounded-2xl border-l-4 border-blue-500 group">
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="text-4xl group-hover:scale-125 transition duration-500">⚽</span>
+                                <span class="bg-blue-500/20 text-blue-400 text-[10px] px-2 py-1 rounded font-bold uppercase">Sports</span>
+                            </div>
+                            <h4 class="text-xl font-bold text-white mb-1">Wonder Kids</h4>
+                            <p class="text-xs text-slate-400">Champions League Winner (U-17 Elite)</p>
                         </div>
-                        <div class="p-4 bg-blue-100 rounded-2xl border border-blue-200 transition hover:shadow-md text-center md:text-left">
-                            <span class="text-2xl">♟️</span>
-                            <h4 class="font-bold text-gray-800 mt-2">Juara 1 Catur</h4>
-                            <p class="text-xs text-gray-600">Grandmaster Awareness</p>
+
+                        <div class="glass p-6 rounded-2xl border-l-4 border-emerald-500 group">
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="text-4xl group-hover:scale-125 transition duration-500">♟️</span>
+                                <span class="bg-emerald-500/20 text-emerald-400 text-[10px] px-2 py-1 rounded font-bold uppercase">Intelligence</span>
+                            </div>
+                            <h4 class="text-xl font-bold text-white mb-1">Grandmaster Chess</h4>
+                            <p class="text-xs text-slate-400">Juara 1 Awareness & Strategic Planning</p>
                         </div>
-                        <div class="p-4 bg-red-50 rounded-2xl border border-red-100 transition hover:shadow-md text-center md:text-left">
-                            <span class="text-2xl">🛡️</span>
-                            <h4 class="font-bold text-gray-800 mt-2">Survivor PD 2</h4>
-                            <p class="text-xs text-gray-600">Human History Survivor</p>
-                        </div>
-                        <div class="p-4 bg-blue-50 rounded-2xl border border-blue-100 transition hover:shadow-md text-center md:text-left">
-                            <span class="text-2xl">🌊</span>
-                            <h4 class="font-bold text-gray-800 mt-2">Selamat Kiamat 2012</h4>
-                            <p class="text-xs text-gray-600">Survival Expert</p>
+
+                        <div class="glass p-6 rounded-2xl border-l-4 border-orange-500 group">
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="text-4xl group-hover:scale-125 transition duration-500">🛡️</span>
+                                <span class="bg-orange-500/20 text-orange-400 text-[10px] px-2 py-1 rounded font-bold uppercase">Survivor</span>
+                            </div>
+                            <h4 class="text-xl font-bold text-white mb-1">Human History Survivor</h4>
+                            <p class="text-xs text-slate-400">Survivor PD 2 & Kiamat 2012 Survival Expert</p>
                         </div>
                     </div>
                 </section>
 
-                <!-- Pengalaman Organisasi (DIKEMBALIKAN) -->
-                <section class="glass-card p-8">
-                    <h2 class="section-title">🏢 Pengalaman Organisasi Global</h2>
+                <!-- ORGANIZATIONS -->
+                <section class="glass rounded-[2rem] p-8 md:p-10" data-aos="fade-up">
+                    <h2 class="text-3xl font-bold mb-8 flex items-center gap-4">
+                        <span class="w-10 h-1 border-b-4 border-pink-500"></span>
+                        Organisasi Global
+                    </h2>
                     <div class="space-y-4">
-                        <div class="experience-card p-4 rounded-2xl bg-slate-50">
-                            <h4 class="font-bold text-gray-800 text-lg">NASA (Space Exploration)</h4>
-                            <p class="text-indigo-600 font-semibold">Special Contributor • 2021 - 2024</p>
-                            <p class="text-sm text-gray-600 mt-1">Membantu perhitungan lintasan roket dan strategi eksplorasi antar bintang.</p>
+                        <div class="group relative p-6 glass rounded-2xl hover:bg-slate-800/50 transition border-l-4 border-transparent hover:border-indigo-500">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h4 class="text-xl font-bold text-white">NASA (Space Exploration)</h4>
+                                    <p class="text-indigo-400 font-semibold mb-2">Special Contributor • 2021 - 2024</p>
+                                </div>
+                                <span class="text-xs font-mono text-slate-500 tracking-widest">OFFICIAL</span>
+                            </div>
+                            <p class="text-slate-400 text-sm">Membantu perhitungan lintasan roket dan strategi eksplorasi antar bintang (Alpha Centauri Sector).</p>
                         </div>
-                        <div class="experience-card p-4 rounded-2xl bg-slate-50">
-                            <h4 class="font-bold text-gray-800 text-lg">Perserikatan Bangsa-Bangsa (PBB)</h4>
-                            <p class="text-indigo-600 font-semibold">International Delegate • 2023</p>
-                            <p class="text-sm text-gray-600 mt-1">Mewakili suara generasi muda dalam forum perdamaian dunia.</p>
+
+                        <div class="group relative p-6 glass rounded-2xl hover:bg-slate-800/50 transition border-l-4 border-transparent hover:border-purple-500">
+                            <h4 class="text-xl font-bold text-white">Perserikatan Bangsa-Bangsa (PBB)</h4>
+                            <p class="text-purple-400 font-semibold mb-2">International Delegate • 2023</p>
+                            <p class="text-slate-400 text-sm">Mewakili suara generasi muda dalam forum perdamaian dunia di Jenewa.</p>
                         </div>
-                        <div class="experience-card p-4 rounded-2xl bg-slate-50">
-                            <h4 class="font-bold text-gray-800 text-lg">World Health Organization (WHO)</h4>
-                            <p class="text-indigo-600 font-semibold">Volunteer Representative • 2019</p>
-                        </div>
-                        <div class="experience-card p-4 rounded-2xl bg-slate-50">
-                            <h4 class="font-bold text-gray-800 text-lg">Pengurus OSIS</h4>
-                            <p class="text-indigo-600 font-semibold">Masa Bakti 2023 - 2024</p>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="p-6 glass rounded-2xl hover:bg-slate-800/50 transition border-l-4 border-cyan-500">
+                                <h4 class="font-bold text-white">WHO</h4>
+                                <p class="text-xs text-cyan-400">Volunteer Representative • 2019</p>
+                            </div>
+                            <div class="p-6 glass rounded-2xl hover:bg-slate-800/50 transition border-l-4 border-slate-500">
+                                <h4 class="font-bold text-white">PENGURUS OSIS</h4>
+                                <p class="text-xs text-slate-400">Masa Bakti 2023 - 2024</p>
+                            </div>
                         </div>
                     </div>
                 </section>
             </div>
 
-            <!-- Kolom Kanan -->
-            <div class="space-y-8">
-                <!-- Pendidikan -->
-                <section class="glass-card p-8">
-                    <h2 class="section-title">🎓 Pendidikan</h2>
-                    <div class="space-y-6">
-                        <div class="relative pl-6 border-l-2 border-indigo-200">
-                            <div class="absolute -left-[9px] top-1 w-4 h-4 bg-indigo-500 rounded-full"></div>
-                            <h3 class="font-bold text-gray-800">SMA KP BALEENDAH</h3>
-                            <p class="text-sm text-indigo-600">2023 - 2026</p>
+            <!-- RIGHT COLUMN -->
+            <aside class="lg:col-span-4 space-y-8">
+                
+                <!-- EDUCATION -->
+                <section class="glass rounded-[2rem] p-8 glass-card" data-aos="fade-left">
+                    <h2 class="text-2xl font-bold mb-6 text-white tracking-tight">🎓 Education</h2>
+                    <div class="space-y-8 relative before:absolute before:inset-y-0 before:left-2 before:w-0.5 before:bg-slate-700">
+                        <div class="relative pl-8">
+                            <div class="absolute left-0 top-1.5 w-4 h-4 bg-indigo-500 rounded-full shadow-[0_0_10px_rgba(99,102,241,0.8)]"></div>
+                            <h3 class="font-bold text-white text-sm">SMA KP BALEENDAH</h3>
+                            <p class="text-xs text-indigo-400">2023 - 2026</p>
                         </div>
-                        <div class="relative pl-6 border-l-2 border-indigo-200">
-                            <div class="absolute -left-[9px] top-1 w-4 h-4 bg-indigo-500 rounded-full"></div>
-                            <h3 class="font-bold text-gray-800">SMPN BE 02</h3>
-                            <p class="text-sm text-indigo-600">2020 - 2023</p>
+                        <div class="relative pl-8">
+                            <div class="absolute left-0 top-1.5 w-4 h-4 bg-slate-600 rounded-full"></div>
+                            <h3 class="font-bold text-white text-sm">SMPN BE 02</h3>
+                            <p class="text-xs text-slate-400">2020 - 2023</p>
                         </div>
-                        <div class="relative pl-6 border-l-2 border-indigo-200">
-                            <div class="absolute -left-[9px] top-1 w-4 h-4 bg-indigo-500 rounded-full"></div>
-                            <h3 class="font-bold text-gray-800">SDN JELEKONG</h3>
-                            <p class="text-sm text-indigo-600">2014 - 2020</p>
+                        <div class="relative pl-8">
+                            <div class="absolute left-0 top-1.5 w-4 h-4 bg-slate-600 rounded-full"></div>
+                            <h3 class="font-bold text-white text-sm">SDN JELEKONG</h3>
+                            <p class="text-xs text-slate-400">2014 - 2020</p>
                         </div>
                     </div>
                 </section>
 
-                <!-- Keahlian -->
-                <section class="glass-card p-8">
-                    <h2 class="section-title">💪 Keahlian</h2>
+                <!-- SKILLS -->
+                <section class="glass rounded-[2rem] p-8 glass-card" data-aos="fade-left" data-aos-delay="100">
+                    <h2 class="text-2xl font-bold mb-6 text-white tracking-tight">💪 Core Skills</h2>
                     <div class="flex flex-wrap gap-2">
-                        <span class="skill-badge text-xs">Public Speaking</span>
-                        <span class="skill-badge text-xs">Komunikasi</span>
-                        <span class="skill-badge text-xs">Manajemen Diri</span>
-                        <span class="skill-badge text-xs">Berpikir Kreatif</span>
-                        <span class="skill-badge text-xs">Pemasaran</span>
-                        <span class="skill-badge text-xs">Problem Solving</span>
+                        <span class="skill-tag px-4 py-2 rounded-xl text-xs font-bold uppercase">Public Speaking</span>
+                        <span class="skill-tag px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-widest">Komunikasi</span>
+                        <span class="skill-tag px-4 py-2 rounded-xl text-xs font-bold uppercase">Leadership</span>
+                        <span class="skill-tag px-4 py-2 rounded-xl text-xs font-bold uppercase">Creative Thinking</span>
+                        <span class="skill-tag px-4 py-2 rounded-xl text-xs font-bold uppercase">Strategic Marketing</span>
+                        <span class="skill-tag px-4 py-2 rounded-xl text-xs font-bold uppercase">Survival Logic</span>
+                        <span class="skill-tag px-4 py-2 rounded-xl text-xs font-bold uppercase">Pro Aiming</span>
                     </div>
                 </section>
 
-                <!-- Hobi -->
-                <section class="glass-card p-8">
-                    <h2 class="section-title">🎨 Hobi</h2>
-                    <div class="grid grid-cols-2 gap-3">
-                        <div class="hobby-item p-2">
-                            <span class="text-xl">🎤</span>
-                            <span class="text-[10px] font-bold text-gray-700">Menyanyi</span>
+                <!-- HOBBIES -->
+                <section class="glass rounded-[2rem] p-8 glass-card" data-aos="fade-left" data-aos-delay="200">
+                    <h2 class="text-2xl font-bold mb-6 text-white tracking-tight">🎨 Passions</h2>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="glass p-4 rounded-2xl flex flex-col items-center group cursor-pointer hover:bg-white/10">
+                            <span class="text-3xl mb-2 group-hover:animate-bounce">🎤</span>
+                            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">Vocalist</span>
                         </div>
-                        <div class="hobby-item p-2">
-                            <span class="text-xl">🎮</span>
-                            <span class="text-[10px] font-bold text-gray-700">Gaming</span>
+                        <div class="glass p-4 rounded-2xl flex flex-col items-center group cursor-pointer hover:bg-white/10">
+                            <span class="text-3xl mb-2 group-hover:animate-spin">🎮</span>
+                            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">Hardcore Gaming</span>
                         </div>
-                        <div class="hobby-item p-2">
-                            <span class="text-xl">👨‍🍳</span>
-                            <span class="text-[10px] font-bold text-gray-700">Memasak</span>
+                        <div class="glass p-4 rounded-2xl flex flex-col items-center group cursor-pointer hover:bg-white/10">
+                            <span class="text-3xl mb-2 group-hover:scale-125 transition">👨‍🍳</span>
+                            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">Culinary Art</span>
                         </div>
-                        <div class="hobby-item p-2">
-                            <span class="text-xl">🎸</span>
-                            <span class="text-[10px] font-bold text-gray-700">Musik</span>
+                        <div class="glass p-4 rounded-2xl flex flex-col items-center group cursor-pointer hover:bg-white/10">
+                            <span class="text-3xl mb-2 group-hover:-rotate-12 transition">🎸</span>
+                            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">Guitarist</span>
                         </div>
                     </div>
                 </section>
 
-                <!-- Sosmed -->
-                <section class="glass-card p-8 text-center">
-                    <h2 class="section-title justify-center">📱 Sosmed</h2>
-                    <div class="flex justify-center gap-4 mb-4">
-                        <a href="https://instagram.com/_zavinn" target="_blank" class="social-link w-10 h-10 flex items-center justify-center bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 text-white rounded-xl text-lg shadow-lg">
-                            📸
+                <!-- SOCIALS -->
+                <section class="glass rounded-[2rem] p-8 text-center glass-card" data-aos="fade-left" data-aos-delay="300">
+                    <h2 class="text-xl font-bold mb-6 text-slate-400 uppercase tracking-widest">Connect</h2>
+                    <div class="flex justify-center gap-6">
+                        <a href="https://instagram.com/_zavinn" target="_blank" class="w-12 h-12 glass flex items-center justify-center rounded-2xl hover:bg-gradient-to-tr hover:from-yellow-400 hover:via-pink-500 hover:to-purple-600 transition duration-500 shadow-xl group">
+                            <span class="text-xl group-hover:scale-110 transition">📸</span>
                         </a>
-                        <a href="https://www.facebook.com/gavin.parker.466499" target="_blank" class="social-link w-10 h-10 flex items-center justify-center bg-blue-600 text-white rounded-xl text-lg shadow-lg">
-                            FB
+                        <a href="https://www.facebook.com/gavin.parker.466499" target="_blank" class="w-12 h-12 glass flex items-center justify-center rounded-2xl hover:bg-blue-600 transition duration-500 shadow-xl group">
+                            <span class="text-xl group-hover:scale-110 transition font-bold">f</span>
                         </a>
                     </div>
-                    <p class="text-xs font-bold text-gray-500 italic">@_zavinn / Gavin Parker</p>
+                    <p class="mt-4 text-xs font-mono text-slate-500 uppercase">Handle: @_zavinn / Gavin Parker</p>
                 </section>
             </div>
         </div>
 
-        <footer class="mt-12 text-center text-white pb-10">
-            <p class="opacity-80 text-sm">Dibuat dengan ❤️ untuk Sang Legenda, Zahran Khaliq Fahrezi</p>
+        <footer class="mt-20 text-center pb-20">
+            <div class="w-24 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto mb-6 rounded-full"></div>
+            <p class="text-slate-500 font-light tracking-widest text-sm uppercase mb-2">Designed for the Absolute Legend</p>
+            <h3 class="text-white font-black text-xl mb-4">Zahran Khaliq Fahrezi</h3>
+            <p class="text-[10px] text-slate-600 uppercase tracking-[0.5em]">© 2024 Legacy Portfolio • All Rights Reserved</p>
         </footer>
-    </div>
+    </main>
+
+    <script>
+        // Initialize AOS (Animate on Scroll)
+        AOS.init({
+            duration: 1000,
+            once: true,
+            easing: 'ease-out-cubic'
+        });
+
+        // Add some mouse follow effect for the background mesh
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            const mesh = document.querySelector('.bg-gradient-mesh');
+            mesh.style.background = `
+                radial-gradient(circle at ${x * 100}% ${y * 100}%, rgba(99, 102, 241, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 100% 100%, rgba(236, 72, 153, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 0% 0%, rgba(168, 85, 247, 0.1) 0%, transparent 50%)
+            `;
+            mesh.style.backgroundColor = '#0f172a';
+        });
+    </script>
 </body>
 </html>
